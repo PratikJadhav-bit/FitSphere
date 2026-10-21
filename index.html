@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitSphere — The Future of Intelligent Fitness</title>
+  <meta name="description" content="FitSphere is an AI-powered fitness platform with smart workout recommendations, body analytics, trainer scheduling, diet tracking, and personalized health intelligence." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Ambient background orbs -->
+<div class="ambient-bg">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<!-- Sidebar Navigation -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="18" stroke="url(#lg1)" stroke-width="2.5"/>
+        <path d="M10 20 Q15 10 20 20 Q25 30 30 20" stroke="url(#lg1)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <circle cx="20" cy="20" r="3" fill="url(#lg1)"/>
+        <defs>
+          <linearGradient id="lg1" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#3B82F6"/>
+            <stop offset="1" stop-color="#06B6D4"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <span class="logo-text">FitSphere</span>
+  </div>
+
+  <div class="sidebar-section-label">CORE</div>
+  <nav class="sidebar-nav">
+    <a href="#" class="nav-item active" data-page="dashboard" id="nav-dashboard">
+      <span class="nav-icon">⚡</span>
+      <span>Dashboard</span>
+    </a>
+    <a href="#" class="nav-item" data-page="membership" id="nav-membership">
+      <span class="nav-icon">👥</span>
+      <span>Membership</span>
+    </a>
+    <a href="#" class="nav-item" data-page="attendance" id="nav-attendance">
+      <span class="nav-icon">📍</span>
+      <span>Attendance</span>
+    </a>
+    <a href="#" class="nav-item" data-page="workouts" id="nav-workouts">
+      <span class="nav-icon">🏋️</span>
+      <span>AI Workouts</span>
+      <span class="nav-badge">AI</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-section-label">HEALTH</div>
+  <nav class="sidebar-nav">
+    <a href="#" class="nav-item" data-page="progress" id="nav-progress">
+      <span class="nav-icon">📈</span>
+      <span>Body Progress</span>
+    </a>
+    <a href="#" class="nav-item" data-page="diet" id="nav-diet">
+      <span class="nav-icon">🥗</span>
+      <span>Diet Tracker</span>
+    </a>
+    <a href="#" class="nav-item" data-page="heatmap" id="nav-heatmap">
+      <span class="nav-icon">🔥</span>
+      <span>Performance</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-section-label">MANAGEMENT</div>
+  <nav class="sidebar-nav">
+    <a href="#" class="nav-item" data-page="trainers" id="nav-trainers">
+      <span class="nav-icon">🎯</span>
+      <span>Trainers</span>
+    </a>
+    <a href="#" class="nav-item" data-page="schedule" id="nav-schedule">
+      <span class="nav-icon">📅</span>
+      <span>Scheduler</span>
+    </a>
+    <a href="#" class="nav-item" data-page="revenue" id="nav-revenue">
+      <span class="nav-icon">💰</span>
+      <span>Revenue</span>
+    </a>
+    <a href="#" class="nav-item" data-page="reminders" id="nav-reminders">
+      <span class="nav-icon">🔔</span>
+      <span>Reminders</span>
+      <span class="nav-badge new">3</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-ai-card">
+    <div class="ai-card-glow"></div>
+    <div class="ai-card-icon">🤖</div>
+    <div class="ai-card-text">
+      <strong>FitAI Assistant</strong>
+      <span>Ask me anything</span>
+    </div>
+    <button class="ai-card-btn" id="open-ai-btn">Chat</button>
+  </div>
+</aside>
+
+<!-- Main Content -->
+<main class="main-content" id="main-content">
+
+  <!-- Top Header -->
+  <header class="top-header">
+    <div class="header-left">
+      <button class="menu-toggle" id="menu-toggle">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="header-breadcrumb">
+        <span id="page-title">Dashboard</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="header-search">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Search members, trainers…" id="global-search" />
+      </div>
+      <button class="header-btn" id="notif-btn" title="Notifications">
+        🔔
+        <span class="notif-dot"></span>
+      </button>
+      <div class="header-avatar" title="Admin Profile">
+        <span>A</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page: Dashboard -->
+  <div class="page active" id="page-dashboard">
+    <div class="page-hero">
+      <div class="hero-text">
+        <div class="hero-badge">🚀 AI-Powered Fitness Intelligence</div>
+        <h1>Welcome back, <span class="gradient-text">Admin</span></h1>
+        <p>Your platform is performing at peak efficiency. 247 members active today.</p>
+      </div>
+      <div class="hero-stats-row">
+        <div class="hero-stat-card" id="stat-members">
+          <div class="stat-pulse"></div>
+          <div class="stat-num" data-target="1284">0</div>
+          <div class="stat-label">Total Members</div>
+          <div class="stat-change positive">↑ 12.4%</div>
+        </div>
+        <div class="hero-stat-card" id="stat-active">
+          <div class="stat-pulse blue"></div>
+          <div class="stat-num" data-target="247">0</div>
+          <div class="stat-label">Active Today</div>
+          <div class="stat-change positive">↑ 8.1%</div>
+        </div>
+        <div class="hero-stat-card" id="stat-revenue">
+          <div class="stat-pulse green"></div>
+          <div class="stat-num" data-target="94280" data-prefix="₹">0</div>
+          <div class="stat-label">Monthly Revenue</div>
+          <div class="stat-change positive">↑ 18.7%</div>
+        </div>
+        <div class="hero-stat-card" id="stat-sessions">
+          <div class="stat-pulse orange"></div>
+          <div class="stat-num" data-target="56">0</div>
+          <div class="stat-label">Sessions Today</div>
+          <div class="stat-change positive">↑ 5.3%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard-grid">
+      <!-- AI Insights -->
+      <div class="dash-card ai-insights-card">
+        <div class="card-header">
+          <h3>🤖 AI Insights</h3>
+          <span class="card-badge live">LIVE</span>
+        </div>
+        <div class="ai-insights-list">
+          <div class="insight-item">
+            <div class="insight-icon blue">💡</div>
+            <div class="insight-text">
+              <strong>Peak hours detected</strong>
+              <span>6–8 AM sees 42% more footfall. Consider adding a morning trainer.</span>
+            </div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-icon green">📊</div>
+            <div class="insight-text">
+              <strong>Revenue opportunity</strong>
+              <span>87 members haven't renewed this month. Send targeted offers.</span>
+            </div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-icon orange">🔥</div>
+            <div class="insight-text">
+              <strong>Workout trend</strong>
+              <span>HIIT classes up 34% this week. Schedule more sessions.</span>
+            </div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-icon purple">🥗</div>
+            <div class="insight-text">
+              <strong>Nutrition gap</strong>
+              <span>63% of members are below protein targets. Recommend diet plans.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Activity Feed -->
+      <div class="dash-card live-activity-card">
+        <div class="card-header">
+          <h3>⚡ Live Activity</h3>
+          <span class="card-badge pulse-badge">● LIVE</span>
+        </div>
+        <div class="activity-feed" id="activity-feed">
+          <!-- dynamically populated -->
+        </div>
+      </div>
+
+      <!-- Weekly Chart -->
+      <div class="dash-card chart-card">
+        <div class="card-header">
+          <h3>📊 Weekly Attendance</h3>
+          <div class="chart-legend">
+            <span class="legend-dot blue"></span> Check-ins
+            <span class="legend-dot cyan"></span> Sessions
+          </div>
+        </div>
+        <div class="bar-chart" id="weekly-chart"></div>
+      </div>
+
+      <!-- Top Members -->
+      <div class="dash-card top-members-card">
+        <div class="card-header">
+          <h3>🏆 Top Performers</h3>
+          <a href="#" class="card-link" data-page="membership">View all</a>
+        </div>
+        <div class="top-members-list">
+          <div class="top-member-item">
+            <div class="member-rank gold">1</div>
+            <div class="member-avatar-sm" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">R</div>
+            <div class="member-info-sm">
+              <strong>Rahul Sharma</strong>
+              <span>42 sessions · 98% attendance</span>
+            </div>
+            <div class="member-score">9.8</div>
+          </div>
+          <div class="top-member-item">
+            <div class="member-rank silver">2</div>
+            <div class="member-avatar-sm" style="background:linear-gradient(135deg,#8b5cf6,#3b82f6)">P</div>
+            <div class="member-info-sm">
+              <strong>Priya Mehta</strong>
+              <span>38 sessions · 95% attendance</span>
+            </div>
+            <div class="member-score">9.5</div>
+          </div>
+          <div class="top-member-item">
+            <div class="member-rank bronze">3</div>
+            <div class="member-avatar-sm" style="background:linear-gradient(135deg,#10b981,#06b6d4)">A</div>
+            <div class="member-info-sm">
+              <strong>Arjun Patel</strong>
+              <span>35 sessions · 92% attendance</span>
+            </div>
+            <div class="member-score">9.2</div>
+          </div>
+          <div class="top-member-item">
+            <div class="member-rank">4</div>
+            <div class="member-avatar-sm" style="background:linear-gradient(135deg,#f97316,#eab308)">S</div>
+            <div class="member-info-sm">
+              <strong>Sneha Kapoor</strong>
+              <span>33 sessions · 91% attendance</span>
+            </div>
+            <div class="member-score">8.9</div>
+          </div>
+          <div class="top-member-item">
+            <div class="member-rank">5</div>
+            <div class="member-avatar-sm" style="background:linear-gradient(135deg,#ec4899,#8b5cf6)">V</div>
+            <div class="member-info-sm">
+              <strong>Vikram Singh</strong>
+              <span>30 sessions · 89% attendance</span>
+            </div>
+            <div class="member-score">8.7</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="dash-card quick-actions-card">
+        <div class="card-header">
+          <h3>⚡ Quick Actions</h3>
+        </div>
+        <div class="quick-actions-grid">
+          <button class="quick-action-btn" data-page="membership">
+            <span class="qa-icon">➕</span>
+            <span>Add Member</span>
+          </button>
+          <button class="quick-action-btn" data-page="schedule">
+            <span class="qa-icon">📅</span>
+            <span>Book Session</span>
+          </button>
+          <button class="quick-action-btn" data-page="diet">
+            <span class="qa-icon">🥗</span>
+            <span>Diet Plan</span>
+          </button>
+          <button class="quick-action-btn" data-page="workouts">
+            <span class="qa-icon">🏋️</span>
+            <span>AI Workout</span>
+          </button>
+          <button class="quick-action-btn" data-page="reminders">
+            <span class="qa-icon">🔔</span>
+            <span>Send Alert</span>
+          </button>
+          <button class="quick-action-btn" data-page="revenue">
+            <span class="qa-icon">💳</span>
+            <span>Revenue</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Goals Ring -->
+      <div class="dash-card goals-card">
+        <div class="card-header">
+          <h3>🎯 Monthly Goals</h3>
+        </div>
+        <div class="goals-rings">
+          <div class="ring-item">
+            <svg class="ring-svg" viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="32" fill="none" stroke="#e2e8f0" stroke-width="8"/>
+              <circle cx="40" cy="40" r="32" fill="none" stroke="url(#rg1)" stroke-width="8" stroke-linecap="round"
+                stroke-dasharray="201" stroke-dashoffset="50" class="ring-progress" transform="rotate(-90 40 40)"/>
+              <defs><linearGradient id="rg1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#3b82f6"/>
+                <stop offset="100%" stop-color="#06b6d4"/>
+              </linearGradient></defs>
+            </svg>
+            <div class="ring-label">Members<br><strong>75%</strong></div>
+          </div>
+          <div class="ring-item">
+            <svg class="ring-svg" viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="32" fill="none" stroke="#e2e8f0" stroke-width="8"/>
+              <circle cx="40" cy="40" r="32" fill="none" stroke="url(#rg2)" stroke-width="8" stroke-linecap="round"
+                stroke-dasharray="201" stroke-dashoffset="36" class="ring-progress" transform="rotate(-90 40 40)"/>
+              <defs><linearGradient id="rg2" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#10b981"/>
+                <stop offset="100%" stop-color="#34d399"/>
+              </linearGradient></defs>
+            </svg>
+            <div class="ring-label">Revenue<br><strong>82%</strong></div>
+          </div>
+          <div class="ring-item">
+            <svg class="ring-svg" viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="32" fill="none" stroke="#e2e8f0" stroke-width="8"/>
+              <circle cx="40" cy="40" r="32" fill="none" stroke="url(#rg3)" stroke-width="8" stroke-linecap="round"
+                stroke-dasharray="201" stroke-dashoffset="70" class="ring-progress" transform="rotate(-90 40 40)"/>
+              <defs><linearGradient id="rg3" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#f59e0b"/>
+                <stop offset="100%" stop-color="#ef4444"/>
+              </linearGradient></defs>
+            </svg>
+            <div class="ring-label">Sessions<br><strong>65%</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page: Membership -->
+  <div class="page" id="page-membership">
+    <div class="page-header">
+      <div>
+        <h2>Membership Management</h2>
+        <p>Manage all gym members, plans, and renewals</p>
+      </div>
+      <button class="primary-btn" id="add-member-btn">+ Add Member</button>
+    </div>
+
+    <div class="filter-bar">
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">All (1,284)</button>
+        <button class="filter-tab" data-filter="active">Active (1,089)</button>
+        <button class="filter-tab" data-filter="expired">Expired (87)</button>
+        <button class="filter-tab" data-filter="paused">Paused (108)</button>
+      </div>
+      <div class="filter-right">
+        <select class="filter-select">
+          <option>All Plans</option>
+          <option>Basic</option>
+          <option>Pro</option>
+          <option>Elite</option>
+        </select>
+        <div class="search-box">
+          <span>🔍</span>
+          <input type="text" placeholder="Search members…" id="member-search" />
+        </div>
+      </div>
+    </div>
+
+    <div class="members-grid" id="members-grid">
+      <!-- dynamically populated -->
+    </div>
+
+    <!-- Add Member Modal -->
+    <div class="modal-overlay" id="add-member-modal">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h3>Add New Member</h3>
+          <button class="modal-close" id="close-member-modal">✕</button>
+        </div>
+        <div class="modal-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" placeholder="e.g. Rahul Sharma" id="m-name" />
+            </div>
+            <div class="form-group">
+              <label>Phone</label>
+              <input type="tel" placeholder="+91 98765 43210" id="m-phone" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="rahul@email.com" id="m-email" />
+            </div>
+            <div class="form-group">
+              <label>Plan</label>
+              <select id="m-plan">
+                <option>Basic — ₹999/mo</option>
+                <option>Pro — ₹1,999/mo</option>
+                <option>Elite — ₹3,499/mo</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Start Date</label>
+              <input type="date" id="m-start" />
+            </div>
+            <div class="form-group">
+              <label>Goal</label>
+              <select id="m-goal">
+                <option>Weight Loss</option>
+                <option>Muscle Gain</option>
+                <option>Endurance</option>
+                <option>Flexibility</option>
+                <option>General Fitness</option>
+              </select>
+            </div>
+          </div>
+          <button class="primary-btn full-width" id="save-member-btn">Save Member</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page: Attendance -->
+  <div class="page" id="page-attendance">
+    <div class="page-header">
+      <div>
+        <h2>Smart Attendance Tracking</h2>
+        <p>Real-time check-ins with AI-powered insights</p>
+      </div>
+      <button class="primary-btn" id="checkin-btn">+ Manual Check-in</button>
+    </div>
+
+    <div class="attendance-stats">
+      <div class="att-stat-card">
+        <div class="att-icon blue">📍</div>
+        <div class="att-info">
+          <div class="att-num">247</div>
+          <div class="att-label">Present Today</div>
+        </div>
+        <div class="att-bar-wrap"><div class="att-bar" style="--pct:82%;--clr:#3b82f6"></div></div>
+      </div>
+      <div class="att-stat-card">
+        <div class="att-icon green">✅</div>
+        <div class="att-info">
+          <div class="att-num">89%</div>
+          <div class="att-label">Avg Attendance</div>
+        </div>
+        <div class="att-bar-wrap"><div class="att-bar" style="--pct:89%;--clr:#10b981"></div></div>
+      </div>
+      <div class="att-stat-card">
+        <div class="att-icon orange">⏱️</div>
+        <div class="att-info">
+          <div class="att-num">68 min</div>
+          <div class="att-label">Avg Duration</div>
+        </div>
+        <div class="att-bar-wrap"><div class="att-bar" style="--pct:68%;--clr:#f59e0b"></div></div>
+      </div>
+      <div class="att-stat-card">
+        <div class="att-icon red">⚠️</div>
+        <div class="att-info">
+          <div class="att-num">34</div>
+          <div class="att-label">Absent Streak</div>
+        </div>
+        <div class="att-bar-wrap"><div class="att-bar" style="--pct:34%;--clr:#ef4444"></div></div>
+      </div>
+    </div>
+
+    <div class="two-col-grid">
+      <div class="dash-card">
+        <div class="card-header">
+          <h3>📅 Today's Log</h3>
+          <span class="card-badge live">LIVE</span>
+        </div>
+        <div class="attendance-log" id="attendance-log">
+          <!-- dynamically populated -->
+        </div>
+      </div>
+      <div class="dash-card">
+        <div class="card-header">
+          <h3>📊 Hourly Traffic</h3>
+        </div>
+        <div class="hourly-chart" id="hourly-chart"></div>
+        <div class="peak-note">⚡ Peak hours: <strong>6–8 AM</strong> and <strong>6–8 PM</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page: AI Workouts -->
+  <div class="page" id="page-workouts">
+    <div class="page-header">
+      <div>
+        <h2>AI Workout Recommendations</h2>
+        <p>Personalized plans powered by machine learning</p>
+      </div>
+      <button class="primary-btn" id="gen-workout-btn">⚡ Generate Plan</button>
+    </div>
+
+    <div class="workout-profile-bar">
+      <div class="profile-pill">
+        <span class="pp-label">Member</span>
+        <select id="workout-member-select" class="pp-select">
+          <option>Rahul Sharma</option>
+          <option>Priya Mehta</option>
+          <option>Arjun Patel</option>
+          <option>Sneha Kapoor</option>
+        </select>
+      </div>
+      <div class="profile-pill">
+        <span class="pp-label">Goal</span>
+        <select id="workout-goal-select" class="pp-select">
+          <option>Weight Loss</option>
+          <option>Muscle Gain</option>
+          <option>Endurance</option>
+          <option>Flexibility</option>
+        </select>
+      </div>
+      <div class="profile-pill">
+        <span class="pp-label">Level</span>
+        <select id="workout-level-select" class="pp-select">
+          <option>Beginner</option>
+          <option>Intermediate</option>
+          <option>Advanced</option>
+        </select>
+      </div>
+      <div class="profile-pill">
+        <span class="pp-label">Days/Week</span>
+        <select id="workout-days-select" class="pp-select">
+          <option>3 Days</option>
+          <option>4 Days</option>
+          <option>5 Days</option>
+          <option>6 Days</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="workout-plan-grid" id="workout-plan-grid">
+      <!-- dynamically populated -->
+    </div>
+  </div>
+
+  <!-- Page: Body Progress -->
+  <div class="page" id="page-progress">
+    <div class="page-header">
+      <div>
+        <h2>Body Progress Analytics</h2>
+        <p>Track transformation with AI-powered insights</p>
+      </div>
+      <button class="primary-btn" id="log-measurement-btn">+ Log Measurement</button>
+    </div>
+
+    <div class="progress-member-bar">
+      <select id="progress-member-select" class="progress-select">
+        <option>Rahul Sharma</option>
+        <option>Priya Mehta</option>
+        <option>Arjun Patel</option>
+      </select>
+      <div class="timeline-tabs">
+        <button class="timeline-tab active">1M</button>
+        <button class="timeline-tab">3M</button>
+        <button class="timeline-tab">6M</button>
+        <button class="timeline-tab">1Y</button>
+      </div>
+    </div>
+
+    <div class="progress-grid">
+      <div class="dash-card body-metrics-card">
+        <div class="card-header"><h3>📏 Body Metrics</h3></div>
+        <div class="body-metrics-list">
+          <div class="body-metric">
+            <div class="bm-label">Weight</div>
+            <div class="bm-bar-wrap">
+              <div class="bm-bar" style="--pct:70%;--clr:#3b82f6"></div>
+            </div>
+            <div class="bm-values"><span class="bm-start">82 kg</span><span class="bm-current">74.2 kg</span></div>
+            <div class="bm-change positive">−7.8 kg</div>
+          </div>
+          <div class="body-metric">
+            <div class="bm-label">Body Fat %</div>
+            <div class="bm-bar-wrap">
+              <div class="bm-bar" style="--pct:55%;--clr:#10b981"></div>
+            </div>
+            <div class="bm-values"><span class="bm-start">24%</span><span class="bm-current">18.5%</span></div>
+            <div class="bm-change positive">−5.5%</div>
+          </div>
+          <div class="body-metric">
+            <div class="bm-label">Muscle Mass</div>
+            <div class="bm-bar-wrap">
+              <div class="bm-bar" style="--pct:78%;--clr:#8b5cf6"></div>
+            </div>
+            <div class="bm-values"><span class="bm-start">58 kg</span><span class="bm-current">61.4 kg</span></div>
+            <div class="bm-change positive">+3.4 kg</div>
+          </div>
+          <div class="body-metric">
+            <div class="bm-label">BMI</div>
+            <div class="bm-bar-wrap">
+              <div class="bm-bar" style="--pct:65%;--clr:#f59e0b"></div>
+            </div>
+            <div class="bm-values"><span class="bm-start">27.4</span><span class="bm-current">24.8</span></div>
+            <div class="bm-change positive">−2.6</div>
+          </div>
+          <div class="body-metric">
+            <div class="bm-label">Chest</div>
+            <div class="bm-bar-wrap">
+              <div class="bm-bar" style="--pct:82%;--clr:#06b6d4"></div>
+            </div>
+            <div class="bm-values"><span class="bm-start">96 cm</span><span class="bm-current">99.5 cm</span></div>
+            <div class="bm-change positive">+3.5 cm</div>
+          </div>
+          <div class="body-metric">
+            <div class="bm-label">Waist</div>
+            <div class="bm-bar-wrap">
+              <div class="bm-bar" style="--pct:45%;--clr:#ef4444"></div>
+            </div>
+            <div class="bm-values"><span class="bm-start">88 cm</span><span class="bm-current">81 cm</span></div>
+            <div class="bm-change positive">−7 cm</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-card transformation-card">
+        <div class="card-header"><h3>🔄 Transformation Timeline</h3></div>
+        <div class="transformation-timeline" id="transformation-timeline">
+          <!-- dynamically populated -->
+        </div>
+      </div>
+
+      <div class="dash-card strength-card">
+        <div class="card-header"><h3>💪 Strength Progress</h3></div>
+        <div class="strength-list">
+          <div class="strength-item">
+            <div class="str-name">Bench Press</div>
+            <div class="str-progress-wrap">
+              <div class="str-progress" style="--w:85%"></div>
+            </div>
+            <div class="str-value">85 kg <span class="str-delta">↑ +10 kg</span></div>
+          </div>
+          <div class="strength-item">
+            <div class="str-name">Squat</div>
+            <div class="str-progress-wrap">
+              <div class="str-progress" style="--w:78%"></div>
+            </div>
+            <div class="str-value">100 kg <span class="str-delta">↑ +15 kg</span></div>
+          </div>
+          <div class="strength-item">
+            <div class="str-name">Deadlift</div>
+            <div class="str-progress-wrap">
+              <div class="str-progress" style="--w:92%"></div>
+            </div>
+            <div class="str-value">120 kg <span class="str-delta">↑ +20 kg</span></div>
+          </div>
+          <div class="strength-item">
+            <div class="str-name">Pull-ups</div>
+            <div class="str-progress-wrap">
+              <div class="str-progress" style="--w:62%"></div>
+            </div>
+            <div class="str-value">12 reps <span class="str-delta">↑ +5</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page: Diet Tracker -->
+  <div class="page" id="page-diet">
+    <div class="page-header">
+      <div>
+        <h2>Diet Tracker</h2>
+        <p>AI-powered nutrition monitoring and meal planning</p>
+      </div>
+      <button class="primary-btn" id="log-meal-btn">+ Log Meal</button>
+    </div>
+
+    <div class="diet-grid">
+      <div class="dash-card macro-card">
+        <div class="card-header"><h3>🥗 Today's Macros</h3><span class="card-badge">Rahul Sharma</span></div>
+        <div class="macro-rings">
+          <div class="macro-ring-item">
+            <svg viewBox="0 0 100 100" class="macro-svg">
+              <circle cx="50" cy="50" r="40" fill="none" stroke="#f1f5f9" stroke-width="10"/>
+              <circle cx="50" cy="50" r="40" fill="none" stroke="#3b82f6" stroke-width="10"
+                stroke-dasharray="251" stroke-dashoffset="75" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+            </svg>
+            <div class="macro-ring-label">
+              <strong>1,840</strong>
+              <span>/ 2,200 kcal</span>
+            </div>
+          </div>
+        </div>
+        <div class="macro-bars">
+          <div class="macro-bar-item">
+            <div class="mb-header">
+              <span class="mb-label">Protein</span>
+              <span class="mb-value">142g / 180g</span>
+            </div>
+            <div class="mb-track"><div class="mb-fill" style="--w:79%;--clr:#3b82f6"></div></div>
+          </div>
+          <div class="macro-bar-item">
+            <div class="mb-header">
+              <span class="mb-label">Carbs</span>
+              <span class="mb-value">198g / 240g</span>
+            </div>
+            <div class="mb-track"><div class="mb-fill" style="--w:82%;--clr:#10b981"></div></div>
+          </div>
+          <div class="macro-bar-item">
+            <div class="mb-header">
+              <span class="mb-label">Fats</span>
+              <span class="mb-value">52g / 65g</span>
+            </div>
+            <div class="mb-track"><div class="mb-fill" style="--w:80%;--clr:#f59e0b"></div></div>
+          </div>
+          <div class="macro-bar-item">
+            <div class="mb-header">
+              <span class="mb-label">Water</span>
+              <span class="mb-value">2.1L / 3L</span>
+            </div>
+            <div class="mb-track"><div class="mb-fill" style="--w:70%;--clr:#06b6d4"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-card meal-log-card">
+        <div class="card-header"><h3>🍽️ Meal Log</h3></div>
+        <div class="meal-log-list" id="meal-log-list">
+          <div class="meal-entry">
+            <div class="meal-time">7:00 AM</div>
+            <div class="meal-details">
+              <strong>Breakfast</strong>
+              <span>Oatmeal, Banana, Protein shake</span>
+            </div>
+            <div class="meal-cals">480 kcal</div>
+          </div>
+          <div class="meal-entry">
+            <div class="meal-time">10:30 AM</div>
+            <div class="meal-details">
+              <strong>Snack</strong>
+              <span>Greek yogurt, Almonds</span>
+            </div>
+            <div class="meal-cals">220 kcal</div>
+          </div>
+          <div class="meal-entry">
+            <div class="meal-time">1:00 PM</div>
+            <div class="meal-details">
+              <strong>Lunch</strong>
+              <span>Grilled chicken, Brown rice, Salad</span>
+            </div>
+            <div class="meal-cals">680 kcal</div>
+          </div>
+          <div class="meal-entry">
+            <div class="meal-time">4:00 PM</div>
+            <div class="meal-details">
+              <strong>Pre-workout</strong>
+              <span>Banana, Peanut butter toast</span>
+            </div>
+            <div class="meal-cals">310 kcal</div>
+          </div>
+          <div class="meal-entry upcoming">
+            <div class="meal-time">8:00 PM</div>
+            <div class="meal-details">
+              <strong>Dinner</strong>
+              <span>Planned: Salmon, Quinoa, Veggies</span>
+            </div>
+            <div class="meal-cals">Planned</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-card ai-diet-card">
+        <div class="card-header"><h3>🤖 AI Recommendations</h3></div>
+        <div class="ai-diet-recs">
+          <div class="diet-rec-item">
+            <div class="dr-icon">💧</div>
+            <div class="dr-text">You're 0.9L below water target. Drink 2 glasses before next meal.</div>
+          </div>
+          <div class="diet-rec-item">
+            <div class="dr-icon">🥩</div>
+            <div class="dr-text">Add 38g more protein today. Consider eggs or cottage cheese for dinner.</div>
+          </div>
+          <div class="diet-rec-item">
+            <div class="dr-icon">🌾</div>
+            <div class="dr-text">Carb intake is well-balanced with workout schedule. Keep it up!</div>
+          </div>
+          <div class="diet-rec-item">
+            <div class="dr-icon">🧘</div>
+            <div class="dr-text">Reduce sodium intake by 400mg. Avoid processed snacks tonight.</div>
+          </div>
+        </div>
+
+        <div class="weekly-diet-chart">
+          <div class="card-header" style="margin-top:1rem"><h4>Weekly Calorie Trend</h4></div>
+          <div class="diet-chart-bars" id="diet-chart"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page: Performance Heatmap -->
+  <div class="page" id="page-heatmap">
+    <div class="page-header">
+      <div>
+        <h2>Performance Heatmaps</h2>
+        <p>Visual analytics of gym-wide activity patterns</p>
+      </div>
+    </div>
+
+    <div class="heatmap-grid">
+      <div class="dash-card heatmap-main-card">
+        <div class="card-header"><h3>🔥 Annual Activity Heatmap</h3>
+          <div class="heatmap-legend">
+            <span class="hm-low">Low</span>
+            <div class="hm-scale"></div>
+            <span class="hm-high">High</span>
+          </div>
+        </div>
+        <div class="heatmap-container" id="annual-heatmap"></div>
+      </div>
+
+      <div class="dash-card muscle-heatmap-card">
+        <div class="card-header"><h3>💪 Muscle Group Activity</h3></div>
+        <div class="muscle-heatmap">
+          <div class="muscle-group-list">
+            <div class="muscle-group-item">
+              <span class="mg-name">Chest</span>
+              <div class="mg-bar-wrap"><div class="mg-bar" style="--pct:92%;--clr:#ef4444"></div></div>
+              <span class="mg-pct">92%</span>
+            </div>
+            <div class="muscle-group-item">
+              <span class="mg-name">Back</span>
+              <div class="mg-bar-wrap"><div class="mg-bar" style="--pct:88%;--clr:#f97316"></div></div>
+              <span class="mg-pct">88%</span>
+            </div>
+            <div class="muscle-group-item">
+              <span class="mg-name">Legs</span>
+              <div class="mg-bar-wrap"><div class="mg-bar" style="--pct:75%;--clr:#eab308"></div></div>
+              <span class="mg-pct">75%</span>
+            </div>
+            <div class="muscle-group-item">
+              <span class="mg-name">Shoulders</span>
+              <div class="mg-bar-wrap"><div class="mg-bar" style="--pct:70%;--clr:#22c55e"></div></div>
+              <span class="mg-pct">70%</span>
+            </div>
+            <div class="muscle-group-item">
+              <span class="mg-name">Arms</span>
+              <div class="mg-bar-wrap"><div class="mg-bar" style="--pct:85%;--clr:#3b82f6"></div></div>
+              <span class="mg-pct">85%</span>
+            </div>
+            <div class="muscle-group-item">
+              <span class="mg-name">Core</span>
+              <div class="mg-bar-wrap"><div class="mg-bar" style="--pct:68%;--clr:#8b5cf6"></div></div>
+              <span class="mg-pct">68%</span>
+            </div>
+            <div class="muscle-group-item">
+              <span class="mg-name">Glutes</span>
+              <div class="mg-bar-wrap"><div class="mg-bar" style="--pct:55%;--clr:#ec4899"></div></div>
+              <span class="mg-pct">55%</span>
+            </div>
+            <div class="muscle-group-item">
+              <span class="mg-name">Calves</span>
+              <div class="mg-bar-wrap"><div class="mg-bar" style="--pct:48%;--clr:#06b6d4"></div></div>
+              <span class="mg-pct">48%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-card equipment-card">
+        <div class="card-header"><h3>🏋️ Equipment Usage</h3></div>
+        <div class="equipment-grid-disp" id="equipment-grid-disp">
+          <!-- dynamically populated -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page: Trainers -->
+  <div class="page" id="page-trainers">
+    <div class="page-header">
+      <div>
+        <h2>Trainer Profiles</h2>
+        <p>Expert coaches driving member transformations</p>
+      </div>
+      <button class="primary-btn">+ Add Trainer</button>
+    </div>
+    <div class="trainers-grid" id="trainers-grid">
+      <!-- dynamically populated -->
+    </div>
+  </div>
+
+  <!-- Page: Schedule -->
+  <div class="page" id="page-schedule">
+    <div class="page-header">
+      <div>
+        <h2>Trainer Scheduling</h2>
+        <p>Smart session booking and calendar management</p>
+      </div>
+      <button class="primary-btn" id="book-session-btn">+ Book Session</button>
+    </div>
+
+    <div class="schedule-layout">
+      <div class="schedule-calendar">
+        <div class="cal-header">
+          <button class="cal-nav" id="cal-prev">‹</button>
+          <h3 id="cal-month-label">May 2026</h3>
+          <button class="cal-nav" id="cal-next">›</button>
+        </div>
+        <div class="cal-grid" id="cal-grid"></div>
+      </div>
+      <div class="schedule-slots">
+        <div class="card-header">
+          <h3>📅 Sessions for <span id="selected-date-label">Today</span></h3>
+        </div>
+        <div class="sessions-list" id="sessions-list">
+          <!-- dynamically populated -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page: Revenue -->
+  <div class="page" id="page-revenue">
+    <div class="page-header">
+      <div>
+        <h2>Revenue Analytics</h2>
+        <p>Financial intelligence and business performance</p>
+      </div>
+      <button class="primary-btn">📊 Export Report</button>
+    </div>
+
+    <div class="revenue-stats">
+      <div class="rev-stat-card">
+        <div class="rev-icon" style="background:linear-gradient(135deg,#3b82f6,#06b6d4)">₹</div>
+        <div class="rev-info">
+          <div class="rev-num">₹94,280</div>
+          <div class="rev-label">This Month</div>
+          <div class="rev-change positive">↑ 18.7% vs last month</div>
+        </div>
+      </div>
+      <div class="rev-stat-card">
+        <div class="rev-icon" style="background:linear-gradient(135deg,#10b981,#34d399)">🎯</div>
+        <div class="rev-info">
+          <div class="rev-num">₹11,24,560</div>
+          <div class="rev-label">Annual Revenue</div>
+          <div class="rev-change positive">↑ 24.2% YoY</div>
+        </div>
+      </div>
+      <div class="rev-stat-card">
+        <div class="rev-icon" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">👥</div>
+        <div class="rev-info">
+          <div class="rev-num">₹2,140</div>
+          <div class="rev-label">Revenue / Member</div>
+          <div class="rev-change positive">↑ 5.8%</div>
+        </div>
+      </div>
+      <div class="rev-stat-card">
+        <div class="rev-icon" style="background:linear-gradient(135deg,#8b5cf6,#ec4899)">📈</div>
+        <div class="rev-info">
+          <div class="rev-num">₹1,20,000</div>
+          <div class="rev-label">Next Month Forecast</div>
+          <div class="rev-change positive">AI Predicted</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col-grid">
+      <div class="dash-card">
+        <div class="card-header"><h3>📊 Monthly Revenue Trend</h3></div>
+        <div class="revenue-chart" id="revenue-chart"></div>
+      </div>
+      <div class="dash-card">
+        <div class="card-header"><h3>🥧 Revenue by Plan</h3></div>
+        <div class="pie-chart-wrap" id="revenue-pie"></div>
+        <div class="pie-legend">
+          <div class="pie-leg-item"><span class="pie-dot" style="background:#3b82f6"></span>Basic Plan — 34%</div>
+          <div class="pie-leg-item"><span class="pie-dot" style="background:#10b981"></span>Pro Plan — 41%</div>
+          <div class="pie-leg-item"><span class="pie-dot" style="background:#f59e0b"></span>Elite Plan — 25%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-card" style="margin-top:1.5rem">
+      <div class="card-header"><h3>💳 Recent Transactions</h3></div>
+      <div class="transactions-table-wrap">
+        <table class="transactions-table" id="transactions-table">
+          <thead>
+            <tr>
+              <th>Member</th>
+              <th>Plan</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="transactions-body">
+            <!-- dynamically populated -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page: Reminders -->
+  <div class="page" id="page-reminders">
+    <div class="page-header">
+      <div>
+        <h2>Smart Reminders</h2>
+        <p>AI-scheduled alerts and member notifications</p>
+      </div>
+      <button class="primary-btn" id="create-reminder-btn">+ Create Reminder</button>
+    </div>
+
+    <div class="reminders-grid">
+      <div class="dash-card">
+        <div class="card-header"><h3>🔔 Active Reminders</h3><span class="card-badge">3 Pending</span></div>
+        <div class="reminders-list" id="reminders-list">
+          <!-- dynamically populated -->
+        </div>
+      </div>
+      <div class="dash-card">
+        <div class="card-header"><h3>🤖 AI Auto-Reminders</h3></div>
+        <div class="auto-reminders-list">
+          <div class="auto-reminder-item active">
+            <div class="ar-icon">💳</div>
+            <div class="ar-info">
+              <strong>Renewal Alerts</strong>
+              <span>Sent 3 days before expiry via WhatsApp & SMS</span>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="auto-reminder-item active">
+            <div class="ar-icon">⚠️</div>
+            <div class="ar-info">
+              <strong>Absence Alerts</strong>
+              <span>Triggers after 3 consecutive missed days</span>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="auto-reminder-item">
+            <div class="ar-icon">🥗</div>
+            <div class="ar-info">
+              <strong>Diet Check-ins</strong>
+              <span>Daily nutrition logging reminders at 7 PM</span>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="auto-reminder-item active">
+            <div class="ar-icon">📅</div>
+            <div class="ar-info">
+              <strong>Session Reminders</strong>
+              <span>1 hour before each scheduled session</span>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="auto-reminder-item">
+            <div class="ar-icon">🎂</div>
+            <div class="ar-info">
+              <strong>Birthday Wishes</strong>
+              <span>Automated birthday messages with special offers</span>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- AI Fitness Assistant Chat -->
+<div class="ai-assistant-panel" id="ai-assistant-panel">
+  <div class="ai-panel-header">
+    <div class="ai-panel-title">
+      <div class="ai-avatar-dot"></div>
+      <span>FitAI Assistant</span>
+      <span class="ai-status-tag">Online</span>
+    </div>
+    <button class="ai-panel-close" id="close-ai-btn">✕</button>
+  </div>
+  <div class="ai-messages" id="ai-messages">
+    <div class="ai-message bot">
+      <div class="ai-bubble">
+        👋 Hi! I'm your FitAI assistant. I can help you with workout plans, diet advice, member analytics, and more. What would you like to know?
+      </div>
+      <div class="ai-msg-time">Just now</div>
+    </div>
+    <div class="ai-suggestions">
+      <button class="ai-suggestion-chip" data-msg="Suggest a workout for weight loss">💪 Workout for weight loss</button>
+      <button class="ai-suggestion-chip" data-msg="What's the best diet for muscle gain?">🥗 Diet for muscle gain</button>
+      <button class="ai-suggestion-chip" data-msg="Show me top performing members">📊 Top performers</button>
+      <button class="ai-suggestion-chip" data-msg="How can I improve attendance?">📍 Improve attendance</button>
+    </div>
+  </div>
+  <div class="ai-input-bar">
+    <input type="text" placeholder="Ask FitAI anything…" id="ai-input" />
+    <button class="ai-send-btn" id="ai-send-btn">➤</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
